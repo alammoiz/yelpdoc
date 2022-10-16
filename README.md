@@ -1,4 +1,4 @@
-# Doctor App - React Native
+# Yelpdoc App - React Native
 
 Mobile application project created with Expo, React Native and some wonderful libraries for React Native application.
 
