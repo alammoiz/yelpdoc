@@ -18,8 +18,8 @@
 ## Description
 
 YelpDoc is divided into two folder:
--Backend
--Frontend
+- Backend
+- Frontend
 
 # Backend API
 Backend is created on following technologies:
@@ -30,10 +30,10 @@ Backend is created on following technologies:
 4. Twilio (for notification)
 5. Cohere.ai (for natural processing)
 
--Need to create the account in Auth0, create the API app and get copy `audience` and `domain`.
--Need to create the account in CockroachDb Cloud console, create the database in cluster and copy the param `username`, `host`, `password`, `database`, `port` & `cluster`.
--Need to create the account in Twilio, verify phone number and get `account_sid`, `auth_token`, the sending `phone number`.
--Need to create the account in cohere, select `generate` and `classify` product then get `api_key`.
+- Need to create the account in Auth0, create the API app and get copy `audience` and `domain`.
+- Need to create the account in CockroachDb Cloud console, create the database in cluster and copy the param `username`, `host`, `password`, `database`, `port` & `cluster`.
+- Need to create the account in Twilio, verify phone number and get `account_sid`, `auth_token`, the sending `phone number`.
+- Need to create the account in cohere, select `generate` and `classify` product then get `api_key`.
 
 ## Backend Installation
 
@@ -128,7 +128,8 @@ https://github.com/alammoiz/yelpdoc.git
 2. Download node_modules
 
 ```
-npm install
+$ cd frontend
+$ npm install
 ```
 
 3. Run Expo
