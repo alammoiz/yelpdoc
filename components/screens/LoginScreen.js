@@ -4,14 +4,11 @@ import {
   Text,
   Image,
   View,
-  KeyboardAvoidingView,
   TextInput,
 } from "react-native";
 import { Button } from "react-native-elements";
 import {useAuth0, Auth0Provider} from 'react-native-auth0';
-import { AuthSession } from 'expo';
-const auth0Domain = 'dev-u2fjxxn7.us.auth0.com';
-const auth0ClientId = 'rol69hFf2vOIq2GzB2coS2NxRyODg6VY';
+import { AuthSession } from 'expo';;
 import { auth } from "../../firebase";
 
 const LoginScreen = ({ navigation }) => {
