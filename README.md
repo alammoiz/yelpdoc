@@ -11,26 +11,11 @@ Mobile application project created with Expo, React Native and some wonderful li
 
 ## General Info
 
-This Doctor Mobile application allows customers to create their account for health checking and book an appointment with their desired doctors.
-
-### Home Screen
-
-<p flexDirection="row">
-<img src="./components/assets/HomeScreenProduct.png" width="300" height="600" />
-<img src="./components/assets/FilterScreenProduct.png" width="300" height="600" />
-</p>
-
-### Booking Screen
-
-<p flexDirection="row">
-<img src="./components/assets/BookAppointmentProduct.png" width="300" height="600" />
-<img src="./components/assets/DoctorInfo.png" width="300" height="600" />
-</p>
+This Yelp Mobile application allows customers to create their account for health checking and book an appointment with their desired doctors.
 
 ## Main Features
 
 - Complex navigation (Tab, Stack, TabView)
-- Connect to Firebase (Authentication)
 - Sign up credentials and login, sign out
 - Get current date and date format
 - Search doctor, filter by First Name and Last Name
@@ -47,8 +32,6 @@ This Doctor Mobile application allows customers to create their account for heal
 - React Native Community - datetimepicker V4
 - Date-fns format
 - Radio Button React Native V1
-- Firebase Authentication V8
-- Firebase Realtime Database
 
 ## Quick Start
 
@@ -57,7 +40,7 @@ Here are some steps to run this project:
 1. Clone the project
 
 ```
-git@github.com:AnhCaooo/App-Doctor.git
+https://github.com/alammoiz/yelpdoc.git
 ```
 
 2. Download node_modules
