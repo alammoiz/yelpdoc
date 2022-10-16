@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, TextInput } from "react-native";
 import React, { useState } from "react";
-import { Button } from "react-native-elements";
+import { Button, Icon } from "react-native-elements";
+import RadioButtonRN from "radio-buttons-react-native";
 import { auth } from "../../firebase";
 
 const SignUpScreen = ({ navigation }) => {
@@ -8,14 +9,7 @@ const SignUpScreen = ({ navigation }) => {
   const [password, setPassword] = useState("");
 
   const handleSignUp = () => {
-    auth
-      .createUserWithEmailAndPassword(email, password)
-      .then((userCredentials) => {
-        const user = userCredentials.user;
-        console.log("Register new user: ", user.email);
-        navigateLogin();
-      })
-      .catch((error) => alert(error.message));
+    navigation.navigate("SMSCode");
   };
 
   const navigateLogin = () => {
@@ -28,6 +22,9 @@ const SignUpScreen = ({ navigation }) => {
         <Text style={styles.greeting}>Register your account!</Text>
       </View>
       <View style={styles.inputContainer}>
+        <TextInput placeholder="First Name" style={styles.input} />
+        <TextInput placeholder="Last Name" style={styles.input} />
+
         <TextInput
           placeholder="Email"
           style={styles.input}
@@ -40,6 +37,23 @@ const SignUpScreen = ({ navigation }) => {
           secureTextEntry
           value={password}
           onChangeText={(text) => setPassword(text)}
+        />
+        <Text style={styles.role}>Who you are?</Text>
+        <RadioButtonRN
+          data={[
+            {
+              id: "1",
+              label: "Doctor",
+            },
+            {
+              id: "2",
+              label: "Patient",
+            },
+          ]}
+          boxStyle={{ borderWidth: 0 }}
+          textStyle={{ fontSize: 15, fontWeight: 'bold' }}
+          circleStyle={{ size: 14 }}
+          icon={<Icon name="check-circle" size={25} color="#2c9dd1" />}
         />
       </View>
 
@@ -89,7 +103,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   buttonContainer: {
-    width: "60%",
+    width: "80%",
     justifyContent: "center",
     alignItems: "center",
     marginTop: 40,
@@ -122,6 +136,9 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 15,
+  },
+  role: {
+    marginTop: 10,
   },
 });
 

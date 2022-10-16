@@ -2,14 +2,20 @@ import React, { useState } from "react";
 import {
   StyleSheet,
   Text,
+  Image,
   View,
   KeyboardAvoidingView,
   TextInput,
 } from "react-native";
 import { Button } from "react-native-elements";
+import {useAuth0, Auth0Provider} from 'react-native-auth0';
+import { AuthSession } from 'expo';
+const auth0Domain = 'dev-u2fjxxn7.us.auth0.com';
+const auth0ClientId = 'rol69hFf2vOIq2GzB2coS2NxRyODg6VY';
 import { auth } from "../../firebase";
 
 const LoginScreen = ({ navigation }) => {
+  const {authorize, clearSession, user} = useAuth0();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -18,20 +24,25 @@ const LoginScreen = ({ navigation }) => {
   };
 
   const handleLogin = () => {
-    auth
-      .signInWithEmailAndPassword(email, password)
-      .then((userCredentials) => {
-        const user = userCredentials.user;
-        navigation.navigate("HomeScreen");
-        console.log("Logged in with", user.email);
-      })
-      .catch((error) => alert(error.message));
+    navigation.navigate("HomeScreen");
+  };
+
+  const onLogin = async () => {
+    try {
+      await authorize();
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return (
     <View style={styles.container}>
-      <View>
-        <Text style={styles.greeting}>Welcome to Doctor App!</Text>
+      <View style={styles.card}>
+        {/* <Text style={styles.greeting}>Welcome to Doctor App!</Text> */}
+        <Image
+        source={require("../assets/General_Practioner_Female.png")}
+        style={[styles.cardImage]}
+      />
       </View>
       <View style={styles.inputContainer}>
         <TextInput
@@ -64,6 +75,13 @@ const LoginScreen = ({ navigation }) => {
           title="Register"
           titleStyle={styles.buttonOutlineText}
         />
+        <Button
+          containerStyle={styles.button}
+          buttonStyle={[styles.button, styles.buttonOutline]}
+          onPress={onLogin}
+          title="auth0"
+          titleStyle={styles.buttonOutlineText}
+        />
       </View>
     </View>
   );
@@ -93,7 +111,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   buttonContainer: {
-    width: "60%",
+    width: "80%",
     justifyContent: "center",
     alignItems: "center",
     marginTop: 40,
@@ -120,6 +138,14 @@ const styles = StyleSheet.create({
   },
   textContainer: {},
   text: {},
+  card: {
+    height: 200,
+    width: 100
+  },
+  cardImage: {
+    height: 200,
+    width: "100%",
+  },
 });
 
 export default LoginScreen;

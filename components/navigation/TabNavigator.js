@@ -77,7 +77,7 @@ const HomeTabNavigator = () => {
         component={ProfileScreen}
         options={{
           headerShown: true,
-          headerTitle: "Personal Infomation",
+          headerTitle: "My Profile",
           headerTitleAlign: "center",
         }}
       />

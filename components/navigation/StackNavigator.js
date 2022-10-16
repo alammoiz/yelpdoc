@@ -4,6 +4,7 @@ import LoginScreen from "../screens/LoginScreen";
 import HomeTabNavigator from "./TabNavigator";
 import ProfileScreen from "../screens/ProfileScreen";
 import SignUpScreen from "../screens/SignUpScreen";
+import SMSCode from "../screens/SMSCode";
 
 const Stack = createNativeStackNavigator();
 
@@ -18,6 +19,13 @@ const StackNavigator = () => {
       <Stack.Screen
         name="SignUpScreen"
         component={SignUpScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="SMSCode"
+        component={SMSCode}
         options={{
           headerShown: false,
         }}
